@@ -6,10 +6,10 @@ nums = []
 for _ in range(N):
     nums.append(int(sys.stdin.readline()))
 
-arm = 0
-mid = 0
-mod = 0
-rng = 0
+arm = 0 # 산술평균
+mid = 0 # 중앙값
+mod = 0 # 최빈값
+rng = 0 # 범위
 
 def merge_sort(L):
     if len(L) <= 1:
