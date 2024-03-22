@@ -3,11 +3,12 @@ import heapq
 def solution(operations):
     answer = []
     heap = []
+
     for op in operations:
         x, value = op.split()
         value = int(value)
-        
-        if x =='I':
+
+        if x == 'I':
             heapq.heappush(heap, value)
         
         elif x == 'D' and value == 1:
@@ -18,15 +19,10 @@ def solution(operations):
         else:
             if heap:
                 heapq.heappop(heap)
-                
-    if not heap:
-        answer = [0,0]
     
+    if heap:
+        answer.append(max(heap))
+        answer.append(heapq.heappop(heap))
     else:
-        max_res = max(heap)
-        min_res = heap[0]
-    
-        answer.append(max_res)
-        answer.append(min_res)
-    
+        answer = [0,0]
     return answer
